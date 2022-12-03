@@ -39,7 +39,7 @@
                       <td>{{produto.preco | currency: "BRL"}}</td>
                       <td><a class="btn btn-warning" routerLink="/form-alterar/{{produto.id}}">Alterar</a></td>
                       <td><button class="btn btn-danger" (click)="excluir(produto)">Excluir</button></td>
-                      <td><button class="btn btn-success" (click)="adicionarProdutoCarrinho(produto)">Adicionar ao carrinho</button></td>
+                      <td><button class="btn btn-success" (click)="adicionarProdutoCarrinho(produto.id)">Adicionar ao carrinho</button></td>
                     </tr>
                   </tbody>
               </table>

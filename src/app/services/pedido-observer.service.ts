@@ -6,12 +6,14 @@ import { PedidoService } from './pedido.service';
 })
 export class PedidoObserverService {
 
-  constructor() { }
+  constructor(
+    private pedidoService : PedidoService
+  ) { }
 
   public quantidade: number = 0
 
   atualizarQuantidade(){
     console.log("Caiu aq")
-    this.quantidade = PedidoService.get().items.length;
+    // this.quantidade = this.pedidoService.get()
   }
 }

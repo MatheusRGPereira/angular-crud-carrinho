@@ -29,14 +29,14 @@ export class ClienteFormComponent implements OnInit {
       this.atualizaCliente(id)
     }
   }
-  private async atualizaCliente(id: Number){
+  private async atualizaCliente(id: number){
     this.titulo = "Alterando cliente"
-    this.cliente = await this.clienteService.getById(this.cliente.id)
+    this.cliente = await this.clienteService.getById(id)
   }
 
 
   save() {
-    if (this.cliente.id > 0) {
+    if (this.cliente && this.cliente.id > 0) {
       this.clienteService.put(this.cliente)
     } 
     else {

@@ -14,7 +14,7 @@ export class ProdutoListComponent implements OnInit {
 
   constructor(private router: Router, 
     public pedidoObserverService : PedidoObserverService,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
     ) { }
   
   ngOnInit(): void {
@@ -32,8 +32,14 @@ export class ProdutoListComponent implements OnInit {
     this.produtos = ProdutoService.buscaProdutos()
   }
 
-  adicionarProdutoCarrinho(produto: Produto){
-    PedidoService.get().items.push(produto);
-    this.pedidoObserverService.atualizarQuantidade();
+  adicionarProdutoCarrinho(id:number){
+      let pedido:Produto = {} as Produto
+      for(let i = 0; this.produtos.length; i++){
+          if(id == this.produtos[i].id){
+            pedido = this.produtos[i]
+            this.pedidoService.getPedido(pedido)
+            return
+          }
+      }
   }
 }
